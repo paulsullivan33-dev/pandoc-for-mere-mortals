@@ -1,0 +1,65 @@
+pandoc for Mere Mortals — the commands, collected
+===================================================
+Run from inside examples/. The fixture is agenda.md
+(an Elks committee agenda) with its chart.png.
+Every job ends by looking inside what it made.
+
+Inspect the converter (ch. 1)
+  pandoc --version
+  pandoc --list-input-formats | wc -l
+  pandoc --list-output-formats | wc -l
+
+The grammar (ch. 2)
+  pandoc agenda.md                        # a fragment, on the terminal
+  pandoc -f markdown -t html5 agenda.md   # reader and writer named
+  pandoc agenda.md -o agenda-fragment.html
+  pandoc -t native agenda.md | head -14   # the document model, printed
+
+Markdown to a web page (ch. 3)
+  pandoc -s agenda.md -o agenda-bare.html
+  pandoc -s --toc agenda.md -o agenda.html
+  grep -o '<title>[^<]*</title>' agenda.html
+
+Metadata (ch. 4)
+  pandoc -s --metadata title="Committee Copy - Do Not Circulate" agenda.md -o agenda-override.html
+  pandoc -s --metadata subtitle="Working draft" agenda.md -o agenda-subtitle.html
+
+Markdown to Word (ch. 5)
+  pandoc agenda.md -o agenda.docx
+  unzip -l agenda.docx
+  unzip -p agenda.docx word/document.xml | grep -o 'Banquet headcount deadline'
+  unzip -p agenda.docx word/media/rId24.png > extracted-from-docx.png
+  cmp extracted-from-docx.png chart.png
+
+The rescues (ch. 6, 7)
+  pandoc agenda.docx -t markdown -o agenda-roundtrip.md
+  diff agenda.md agenda-roundtrip.md
+  pandoc agenda.html -f html -t markdown -o agenda-from-html.md
+
+Markdown to an ebook (ch. 8)
+  pandoc agenda.md -o agenda.epub
+  unzip -l agenda.epub
+  unzip -p agenda.epub EPUB/content.opf | grep -o '<dc:title[^<]*</dc:title>'
+
+PDF, with an engine named (ch. 9)
+  pandoc --pdf-engine=weasyprint agenda.md -o agenda.pdf
+  pandoc --pdf-engine=wkhtmltopdf agenda.md -o agenda-wkhtml.pdf
+  pdfinfo agenda.pdf
+  pdftotext agenda.pdf - | grep -c 'Banquet headcount deadline'
+
+Slides (ch. 10)
+  pandoc -s -t revealjs agenda.md -o agenda-slides.html
+
+Images, there and back (ch. 11)
+  pandoc -s --embed-resources agenda.md -o agenda-embedded.html
+  pandoc agenda.docx -t markdown --extract-media=extracted -o agenda-extracted.md
+  cmp extracted/media/rId24.png chart.png
+
+Revisions, made visible (ch. 12)
+  pandoc agenda-tracked.docx -t markdown -o tracked-accept.md
+  pandoc --track-changes=reject agenda-tracked.docx -t markdown -o tracked-reject.md
+  pandoc --track-changes=all agenda-tracked.docx -t markdown -o tracked-all.md
+
+Repeat business (ch. 13)
+  pandoc -d committee.yaml agenda.md -o agenda-defaults.html
+  for f in agenda.md reminder.md; do pandoc "$f" -o "${f%.md}.docx"; done

@@ -1,0 +1,26 @@
+site_name: Pandoc for Mere Mortals
+site_description: Plain-language pandoc. One document written once and out as a web page, a Word file, an ebook, slides, or a PDF, with every conversion opened up and checked inside, and the losses named where they happen.
+site_url: https://paulsullivan33-dev.github.io/pandoc-for-mere-mortals/
+
+# Guides live at the repo root (nice for GitHub browsing).
+# The deploy workflow copies them into docs/ before building.
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - What Pandoc Is: what-pandoc-is.md
+  - The Command Grammar: the-command-grammar.md
+  - Markdown to HTML: markdown-to-html.md
+  - Metadata and Front Matter: metadata-and-front-matter.md
+  - Markdown to DOCX: markdown-to-docx.md
+  - DOCX to Markdown, the Rescue: docx-to-markdown.md
+  - HTML to Markdown: html-to-markdown.md
+  - Markdown to EPUB: markdown-to-epub.md
+  - PDF and the Engine Question: pdf-and-engines.md
+  - Slides from Markdown: slides.md
+  - Images and Media: images-and-media.md
+  - What Survives: what-survives.md
+  - Defaults Files and Batch Jobs: defaults-and-batch.md
+  - Glossary: glossary.md
+  - Writing Criteria: criteria.md
