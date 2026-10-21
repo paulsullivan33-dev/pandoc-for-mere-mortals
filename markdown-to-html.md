@@ -20,7 +20,7 @@ readable without any work from you.
 ```
 $ pandoc -s agenda.md -o agenda-bare.html
 $ ls -l agenda-bare.html
--rw-rw---- 1 root nogroup 5873 agenda-bare.html
+-rw-rw---- 1 root nogroup 5841 agenda-bare.html
 ```
 
 The checks
@@ -30,7 +30,7 @@ subject — supplies the title:
 
 ```
 $ grep -o '<title>[^<]*</title>' agenda.html
-<title>Fall Conference Planning Meeting</title>
+<title>Spring Planting Planning Meeting</title>
 ```
 
 And the headings carry the anchors the rest
@@ -55,7 +55,7 @@ template, a `<nav>` before the body text:
 ```
 $ pandoc -s --toc agenda.md -o agenda.html
 $ ls -l agenda.html
--rw-rw---- 1 root nogroup 6220 agenda.html
+-rw-rw---- 1 root nogroup 6188 agenda.html
 
 $ grep -A6 'id="TOC"' agenda.html
 <nav id="TOC" role="doc-toc">
@@ -96,7 +96,7 @@ throughout, so what you see in these
 captures is what a fresh install produces.
 
 Check: your `agenda.html` greps
-`<title>Fall Conference Planning Meeting</title>`,
+`<title>Spring Planting Planning Meeting</title>`,
 contains one `<table`, and its `id="TOC"` nav
 links `#schedule` to the Schedule heading. If
 all three hold, the page is complete — and

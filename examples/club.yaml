@@ -1,4 +1,4 @@
-# committee.yaml - a pandoc defaults file
+# club.yaml - a pandoc defaults file
 to: html5
 standalone: true
 table-of-contents: true

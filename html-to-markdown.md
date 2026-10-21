@@ -25,11 +25,11 @@ with attributes:
 
 ```
 ::: {#title-block-header}
-# Fall Conference Planning Meeting {#fall-conference-planning-meeting .title}
+# Spring Planting Planning Meeting {#spring-planting-planning-meeting .title}
 
-Convention Committee
+Rosa Jimenez
 
-October 12, 2026
+March 8, 2026
 :::
 ```
 
@@ -63,9 +63,8 @@ trips do at the joints. The reference is
 decorated with the anchors HTML needed:
 
 ```
-2.  Who carries the banner in the opening
-    procession.[^1^](#fn1){#fnref1
-    .footnote-ref role="doc-noteref"}
+2.  Who carries the seed trays in for the spring
+    sale.[^1^](#fn1){#fnref1 .footnote-ref role="doc-noteref"}
 ```
 
 and the image, which HTML expressed as a
@@ -75,9 +74,9 @@ to Markdown image syntax:
 
 ```
 <figure>
-<img src="chart.png" alt="Attendance at the last three conferences" />
-<figcaption aria-hidden="true">Attendance at the last three
-conferences</figcaption>
+<img src="chart.png" alt="Visitors at the last three open days" />
+<figcaption aria-hidden="true">Visitors at the last three open
+days</figcaption>
 </figure>
 ```
 

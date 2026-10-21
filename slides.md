@@ -11,7 +11,7 @@ flag:
 ```
 $ pandoc -s -t revealjs agenda.md -o agenda-slides.html
 $ ls -l agenda-slides.html
--rw-rw---- 1 root nogroup 8969 agenda-slides.html
+-rw-rw---- 1 root nogroup 8937 agenda-slides.html
 
 $ grep -o 'class="reveal"' agenda-slides.html
 class="reveal"
@@ -23,7 +23,7 @@ elements — pandoc counted 3 top-level ones
 in the capture, a title slide generated from
 the front matter, one opening at the `# Agenda`
 heading, and a footnotes slide collecting the
-banner note:
+agenda's footnote:
 
 ```
 $ grep -c '<section' agenda-slides.html
@@ -46,7 +46,7 @@ deck and the handout are one source, so they
 cannot disagree.
 
 Two honest limits, both visible from the
-capture. First, the 8,969-byte file does
+capture. First, the 8,937-byte file does
 not contain reveal.js itself: the deck links
 the framework from a public CDN, so
 presenting from it needs the network (or a

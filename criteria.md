@@ -48,8 +48,8 @@ with the build (`pandoc-lab/transcripts/`,
 appendix captures on 02, 07, and 10).
 
 **The lab.** One fixture document:
-`agenda.md` (1,173 bytes) — an invented Elks
-committee agenda with YAML front matter
+`agenda.md` (1,153 bytes) — an invented
+garden club agenda with YAML front matter
 (title, author, date), an H1 and three H2s,
 a 4×3 pipe table, a bulleted list, a
 numbered list, one link (to example.org),
@@ -58,10 +58,11 @@ one footnote, and one image. The image,
 pixel by pixel with a Python standard-library
 script (three bars on an axis) so the lab
 needs no downloads and no one's artwork.
-Role titles (Chair, Secretary, Treasurer)
-stand in for people throughout; there is no
-real person's data in the lab. The scripts
-that run the lab are kept with it
+The author is an invented person and the
+table's owners are role titles (Chair,
+Secretary, Treasurer, Coordinator); there
+is no real person's data in the lab. The
+scripts that run the lab are kept with it
 (`run-lab.sh`, `run-lab2.sh`, `run-lab3.sh`).
 
 **Verified by running, per chapter:**
@@ -77,7 +78,7 @@ that run the lab are kept with it
   fragment (begins `<h1 id="agenda">`, no
   `<html`); `-f markdown -t html5` identical
   in kind; `-o agenda-fragment.html` writes
-  1,896 bytes; the `.txt` copy reads as
+  1,883 bytes; the `.txt` copy reads as
   Markdown (fallback), the `.html`-mislabelled
   copy reads as HTML and produces the
   backslash-escaped wreckage quoted in the
@@ -86,9 +87,9 @@ that run the lab are kept with it
   form: `[ Header 1 ( "agenda" , [] , [] )
   [ Str "Agenda" ] …`) and a stdin pipe
   (`printf … | pandoc` → fragment).
-- *Ch. 3:* `-s` page (5,873 B) and `-s --toc`
-  page (6,220 B); greps prove `<title>Fall
-  Conference Planning Meeting</title>`, the
+- *Ch. 3:* `-s` page (5,841 B) and `-s --toc`
+  page (6,188 B); greps prove `<title>Spring
+  Planting Planning Meeting</title>`, the
   `<h1 id="agenda">` anchor, the
   `<nav id="TOC">` block linking `#schedule`,
   and exactly 1 `<table`.
@@ -99,12 +100,12 @@ that run the lab are kept with it
   the original page still greps the old);
   `--metadata subtitle="Working draft"`
   produces the `<p class="subtitle">` line.
-- *Ch. 5:* `agenda.docx` at 12,081 B, `file`
+- *Ch. 5:* `agenda.docx` at 12,055 B, `file`
   reporting Microsoft Word 2007+;
-  `unzip -l` shows **17 parts, 56,174 bytes**
-  uncompressed; cell texts "Banquet
-  headcount deadline" and "Registration desk
-  staffing" greped from
+  `unzip -l` shows **17 parts, 56,226 bytes**
+  uncompressed; cell texts "Compost
+  delivery deadline" and "Plot assignment
+  sign-ups" greped from
   `word/document.xml`; `<dc:title>` and
   `<dc:creator>` greped from
   `docProps/core.xml` (the front-matter
@@ -144,14 +145,14 @@ that run the lab are kept with it
   residue unchanged (the improvement is
   structural, and the chapter grades it as
   such).
-- *Ch. 8:* `agenda.epub` at 6,335 B, `file`
+- *Ch. 8:* `agenda.epub` at 6,299 B, `file`
   reporting EPUB document; `unzip -l` shows
   **10 files**, `mimetype` first and the
   image at `EPUB/media/file0.png` (344 B);
-  `<dc:title id="epub-title-1">Fall
-  Conference Planning Meeting</dc:title>`
+  `<dc:title id="epub-title-1">Spring
+  Planting Planning Meeting</dc:title>`
   greped from `EPUB/content.opf`; the
-  banquet line greped from
+  compost line greped from
   `EPUB/text/ch001.xhtml`.
 - *Ch. 9:* the un-engined conversion fails
   as captured — `pdflatex not found. Please
@@ -160,21 +161,21 @@ that run the lab are kept with it
   from this machine's apt sources
   (`E: Unable to locate package typst`,
   captured by dry-run). **WeasyPrint run:**
-  16,561 B, PDF 1.7, 2 pages A4, `pdfinfo`
+  16,507 B, PDF 1.7, 2 pages A4, `pdfinfo`
   Producer "WeasyPrint 61.1" with Title and
   Author carried from the front matter;
-  `pdftotext` finds the banquet line
-  (count 1) and the title block (wrapped
-  across two printed lines, quoted as
+  `pdftotext` finds the compost line
+  (count 1) and the title block (the title
+  on a single printed line, quoted as
   extracted). Its CSS warnings (four kinds,
   quoted in part) are WeasyPrint declining
   pieces of pandoc's default stylesheet.
-  **wkhtmltopdf run:** 30,700 B, PDF 1.4, 2
+  **wkhtmltopdf run:** 30,440 B, PDF 1.4, 2
   pages, Producer "Qt 5.15.13", **Title
-  empty** in `pdfinfo`; banquet line count
+  empty** in `pdfinfo`; compost line count
   also 1; Qt progress chatter on stderr,
   noted not quoted.
-- *Ch. 10:* the reveal.js deck at 8,969 B;
+- *Ch. 10:* the reveal.js deck at 8,937 B;
   `class="reveal"` greps; `<section` counts
   3, ids `title-slide`, `agenda`,
   `footnotes`. Appendix capture proves the
@@ -185,7 +186,7 @@ that run the lab are kept with it
   `<img src="chart.png"`; `--embed-resources`
   produces `src="data:image/png;base64`;
   the size inversion is the capture's own:
-  embedded 5,412 B vs plain 5,873 B, with
+  embedded 5,380 B vs plain 5,841 B, with
   both effects (base64 added ≈ +460 chars;
   re-serialisation dropping the template's
   indentation) stated as the explanation —
@@ -206,10 +207,10 @@ that run the lab are kept with it
   unzipped, its XML edited by a kept script
   (`docx-edit/edit.py`) to add a tracked
   insertion (`<w:ins … author="A. Reviewer">`,
-  "Reserve the small hall as a backup.") and
+  "Order more twine for the bean poles.") and
   a comment ("Did anyone confirm the
   projector takes HDMI?") anchored to the
-  projector line, then rezipped (14,049 B;
+  projector line, then rezipped (14,022 B;
   `file`: Microsoft OOXML). Default
   conversion: insertion grep count **1**,
   comment grep count **0**.
@@ -220,11 +221,11 @@ that run the lab are kept with it
   spans carrying author and date, quoted
   verbatim from `tracked-all.md`.
 - *Ch. 13:* the defaults file is quoted
-  verbatim; `-d committee.yaml` output
+  verbatim; `-d club.yaml` output
   greps the front-matter title and counts
   1 `id="TOC"`; the batch loop converts
   `agenda.md` and `reminder.md` to DOCX
-  (12,081 B and 9,894 B).
+  (12,055 B and 9,902 B).
 
 **Capture hygiene (declared trims):**
 chapters quote the lines a claim rests on
@@ -242,10 +243,11 @@ reader's form. ZIP entry timestamps are the
 lab runs' own and will differ on yours; the
 sizes quoted are stable for this fixture
 and pandoc build except where zip metadata
-drifts them by a byte or two (the EPUB was
-6,337 B on the first run, 6,335 B on the
-final one — the final run's number is the
-one the chapter prints).
+drifts them by a byte or two (the EPUB
+measured 6,301 B on a repeat run and
+6,299 B on the lab run itself — the lab
+run's number is the one the chapter
+prints).
 
 **Documented-only (not run), and why:**
 
@@ -295,8 +297,9 @@ one the chapter prints).
   installed once here, via apt.
 
 Specimen discipline, for the record: the
-lab's committee is invented, its people are
-role titles, its venue is nowhere, and its
+lab's garden club is invented, its author
+is an invented person, its owners are role
+titles, its venue is nowhere, and its
 one link points at example.org. The chart
 is generated locally; the tracked-changes
 reviewer "A. Reviewer" is a string the lab

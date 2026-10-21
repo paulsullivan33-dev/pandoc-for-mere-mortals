@@ -22,8 +22,8 @@ line at a glance.
 ## The default: a fragment on the terminal
 
 With no options at all, pandoc converts and
-prints. The guide's lab document — an Elks
-committee agenda in Markdown, shipped as
+prints. The guide's lab document — a garden
+club agenda in Markdown, shipped as
 `examples/agenda.md` — comes back as an HTML
 *fragment*: the body of a page, with no
 `<html>`, no `<head>`, no title:
@@ -31,9 +31,9 @@ committee agenda in Markdown, shipped as
 ```
 $ pandoc agenda.md
 <h1 id="agenda">Agenda</h1>
-<p>The committee meets to assign the remaining
-tasks for the Fall Conference. Bring your
-calendars; most of what follows is dates, rooms,
+<p>The club meets to assign the remaining tasks
+for the spring planting. Bring your
+calendars; most of what follows is dates, beds,
 and who owns what.</p>
 <h2 id="schedule">Schedule</h2>
 <table>
@@ -69,7 +69,7 @@ $ pandoc agenda.md -o agenda-fragment.html
 ```
 
 `agenda-fragment.html` is the capture above
-in a file — 1,896 bytes of fragment. Nothing
+in a file — 1,883 bytes of fragment. Nothing
 about `-o` changes the conversion; it only
 redirects it, and (without `-s`) it does not
 make the fragment a page.
@@ -97,10 +97,10 @@ nonsense:
 ```
 $ cp agenda.md mislabelled.html
 $ pandoc mislabelled.html -t markdown
-\-\-\- title: Fall Conference Planning Meeting
-author: Convention Committee date: October 12,
-2026 \-\-\- \# Agenda The committee meets to
-assign the remaining tasks …
+\-\-\- title: Spring Planting Planning Meeting
+author: Rosa Jimenez date:
+March 8, 2026 \-\-\- \# Agenda The club meets
+to assign the remaining tasks …
 ```
 
 Every heading, table pipe, and list marker
@@ -125,7 +125,7 @@ $ pandoc -t native agenda.md | head -14
 , Para
     [ Str "The"
     , Space
-    , Str "committee"
+    , Str "club"
     , Space
     , Str "meets"
     , Space

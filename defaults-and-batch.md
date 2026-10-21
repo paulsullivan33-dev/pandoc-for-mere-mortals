@@ -1,7 +1,7 @@
 # Defaults Files and Batch Jobs
 
 Real pandoc use is repetitive: the same
-committee, the same formats, the same flags,
+group, the same formats, the same flags,
 every month. Two mechanisms keep that from
 becoming folklore pasted from a notes file —
 a **defaults file** that carries the
@@ -15,12 +15,12 @@ is not.
 A defaults file is YAML (the *YAML for Mere
 Mortals* guide covers the format) naming
 options in long form. The lab's is a
-committee stamp — HTML, standalone, with a
+club stamp — HTML, standalone, with a
 table of contents, every time:
 
 ```
-$ cat committee.yaml
-# committee.yaml - a pandoc defaults file
+$ cat club.yaml
+# club.yaml - a pandoc defaults file
 to: html5
 standalone: true
 table-of-contents: true
@@ -31,9 +31,9 @@ metadata:
 `-d` loads it:
 
 ```
-$ pandoc -d committee.yaml agenda.md -o agenda-defaults.html
+$ pandoc -d club.yaml agenda.md -o agenda-defaults.html
 $ grep -o '<title>[^<]*</title>' agenda-defaults.html
-<title>Fall Conference Planning Meeting</title>
+<title>Spring Planting Planning Meeting</title>
 
 $ grep -c 'id="TOC"' agenda-defaults.html
 1
@@ -62,14 +62,14 @@ properly; here it is at work:
 
 ```
 $ for f in agenda.md reminder.md; do pandoc "$f" -o "${f%.md}.docx"; done; ls -l agenda.docx reminder.docx
--rw-rw---- 1 root nogroup 12081 agenda.docx
--rw-rw---- 1 root nogroup  9894 reminder.docx
+-rw-rw---- 1 root nogroup 12055 agenda.docx
+-rw-rw---- 1 root nogroup  9902 reminder.docx
 ```
 
 Two sources, two Word files, each writer
 chosen by the `-o` extension. Add `-d
-committee.yaml`-style settings to the loop
-and a month's worth of committee paper is
+club.yaml`-style settings to the loop
+and a month's worth of club paper is
 one command — the same command every month,
 which is the entire point.
 
@@ -115,7 +115,7 @@ is the rare tool that does exactly what its
 one-line description says. Write once. Keep
 the source. Convert on demand, and check.
 
-Check: `pandoc -d committee.yaml agenda.md`
+Check: `pandoc -d club.yaml agenda.md`
 produces a page whose TOC grep counts 1
 without a single content flag on the
 command line — the settings travelled with

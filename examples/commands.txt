@@ -1,7 +1,7 @@
 pandoc for Mere Mortals — the commands, collected
 ===================================================
 Run from inside examples/. The fixture is agenda.md
-(an Elks committee agenda) with its chart.png.
+(a garden club agenda) with its chart.png.
 Every job ends by looking inside what it made.
 
 Inspect the converter (ch. 1)
@@ -21,13 +21,13 @@ Markdown to a web page (ch. 3)
   grep -o '<title>[^<]*</title>' agenda.html
 
 Metadata (ch. 4)
-  pandoc -s --metadata title="Committee Copy - Do Not Circulate" agenda.md -o agenda-override.html
+  pandoc -s --metadata title="Draft Copy - Do Not Circulate" agenda.md -o agenda-override.html
   pandoc -s --metadata subtitle="Working draft" agenda.md -o agenda-subtitle.html
 
 Markdown to Word (ch. 5)
   pandoc agenda.md -o agenda.docx
   unzip -l agenda.docx
-  unzip -p agenda.docx word/document.xml | grep -o 'Banquet headcount deadline'
+  unzip -p agenda.docx word/document.xml | grep -o 'Compost delivery deadline'
   unzip -p agenda.docx word/media/rId24.png > extracted-from-docx.png
   cmp extracted-from-docx.png chart.png
 
@@ -45,7 +45,7 @@ PDF, with an engine named (ch. 9)
   pandoc --pdf-engine=weasyprint agenda.md -o agenda.pdf
   pandoc --pdf-engine=wkhtmltopdf agenda.md -o agenda-wkhtml.pdf
   pdfinfo agenda.pdf
-  pdftotext agenda.pdf - | grep -c 'Banquet headcount deadline'
+  pdftotext agenda.pdf - | grep -c 'Compost delivery deadline'
 
 Slides (ch. 10)
   pandoc -s -t revealjs agenda.md -o agenda-slides.html
@@ -61,5 +61,5 @@ Revisions, made visible (ch. 12)
   pandoc --track-changes=all agenda-tracked.docx -t markdown -o tracked-all.md
 
 Repeat business (ch. 13)
-  pandoc -d committee.yaml agenda.md -o agenda-defaults.html
+  pandoc -d club.yaml agenda.md -o agenda-defaults.html
   for f in agenda.md reminder.md; do pandoc "$f" -o "${f%.md}.docx"; done

@@ -1,6 +1,6 @@
 # Pandoc for Mere Mortals
 
-You wrote it once. Now the committee wants
+You wrote it once. Now your group wants
 it as a Word document, the website wants it
 as a page, the record wants it as a PDF, and
 someone who reads on a tablet wants an ebook.
@@ -26,8 +26,9 @@ something you verify, not something you
 hope.
 
 The lab is one small document, shipped in
-`examples/`: an Elks-style committee agenda
-(`agenda.md`) with YAML front matter, a
+`examples/`: a community garden club's
+spring agenda (`agenda.md`) with YAML front
+matter, a
 table, lists, a link, a footnote, and one
 small generated chart. Every conversion in
 the guide runs on it, so the outputs can be

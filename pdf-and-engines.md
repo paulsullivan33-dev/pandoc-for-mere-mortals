@@ -68,14 +68,14 @@ complete:
 
 ```
 $ ls -l agenda.pdf
--rw-rw---- 1 root nogroup 16561 agenda.pdf
+-rw-rw---- 1 root nogroup 16507 agenda.pdf
 
 $ file agenda.pdf
 agenda.pdf: PDF document, version 1.7
 
 $ pdfinfo agenda.pdf
-Title:           Fall Conference Planning Meeting
-Author:          Convention Committee
+Title:           Spring Planting Planning Meeting
+Author:          Rosa Jimenez
 Creator:         pandoc
 Producer:        WeasyPrint 61.1
 Pages:           2
@@ -90,27 +90,26 @@ not a filename guess. And the content is
 provably inside, by extraction:
 
 ```
-$ pdftotext agenda.pdf - | grep -c 'Banquet headcount deadline'
+$ pdftotext agenda.pdf - | grep -c 'Compost delivery deadline'
 1
 
 $ pdftotext agenda.pdf - | head -4
-Fall Conference Planning
-Meeting
-Convention Committee
-October 12, 2026
+Spring Planting Planning Meeting
+Rosa Jimenez
+March 8, 2026
+
 ```
 
-The title block extracted whole — wrapped
-across two printed lines, as titles are —
-followed by author and date, then the
-agenda itself.
+The title block extracted whole — the title
+on a single printed line — followed by
+author and date, then the agenda itself.
 
 ## wkhtmltopdf: same document, different PDF
 
 ```
 $ pandoc --pdf-engine=wkhtmltopdf agenda.md -o agenda-wkhtml.pdf
 $ ls -l agenda-wkhtml.pdf
--rw-rw---- 1 root nogroup 30700 agenda-wkhtml.pdf
+-rw-rw---- 1 root nogroup 30440 agenda-wkhtml.pdf
 
 $ pdfinfo agenda-wkhtml.pdf
 Title:
@@ -120,9 +119,9 @@ Pages:           2
 ```
 
 Same source, same pandoc, same two pages of
-agenda — the banquet line extracts with the
+agenda — the compost line extracts with the
 same count of 1. But this file is nearly
-twice the size (30,700 against 16,561 bytes),
+twice the size (30,440 against 16,507 bytes),
 an older PDF version (1.4 against 1.7), and
 its **Title is empty**: the front matter
 did not cross into the document properties

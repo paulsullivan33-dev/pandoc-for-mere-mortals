@@ -2,7 +2,7 @@
 
 You wrote the thing once — in Markdown, say.
 Now it is needed as a web page for the site,
-a Word document the committee can mark up, a
+a Word document the group can mark up, a
 PDF for the record, and maybe an ebook for
 the member who reads everything on a tablet.
 Four formats, one text. The usual way to get

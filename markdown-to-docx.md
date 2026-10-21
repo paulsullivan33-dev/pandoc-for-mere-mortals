@@ -1,13 +1,13 @@
 # Markdown to DOCX
 
-The committee does not read Markdown. It
-reads Word. So the second everyday job is
+The rest of the club does not read Markdown.
+It reads Word. So the second everyday job is
 the one that makes pandoc welcome in offices:
 
 ```
 $ pandoc agenda.md -o agenda.docx
 $ ls -l agenda.docx
--rw-rw---- 1 root nogroup 12081 agenda.docx
+-rw-rw---- 1 root nogroup 12055 agenda.docx
 
 $ file agenda.docx
 agenda.docx: Microsoft Word 2007+
@@ -27,16 +27,16 @@ by opening the box.
 $ unzip -l agenda.docx
      1898  [Content_Types].xml
       722  _rels/.rels
-     8872  word/document.xml
-     1510  word/_rels/document.xml.rels
+     8926  word/document.xml
+     1511  word/_rels/document.xml.rels
      5698  word/numbering.xml
     21011  word/styles.xml
-     1381  word/footnotes.xml
-      635  docProps/core.xml
+     1388  word/footnotes.xml
+      627  docProps/core.xml
      2494  word/fontTable.xml
       344  word/media/rId24.png
     ...
-    56174      17 files
+    56226      17 files
 ```
 
 Seventeen parts (the listing is trimmed):
@@ -51,11 +51,11 @@ markup, and its cell text greps straight
 out:
 
 ```
-$ unzip -p agenda.docx word/document.xml | grep -o 'Banquet headcount deadline'
-Banquet headcount deadline
+$ unzip -p agenda.docx word/document.xml | grep -o 'Compost delivery deadline'
+Compost delivery deadline
 
-$ unzip -p agenda.docx word/document.xml | grep -o 'Registration desk staffing'
-Registration desk staffing
+$ unzip -p agenda.docx word/document.xml | grep -o 'Plot assignment sign-ups'
+Plot assignment sign-ups
 ```
 
 **The front matter** landed in the document
@@ -64,10 +64,10 @@ and author, in `docProps/core.xml`:
 
 ```
 $ unzip -p agenda.docx docProps/core.xml | grep -o '<dc:title>[^<]*</dc:title>'
-<dc:title>Fall Conference Planning Meeting</dc:title>
+<dc:title>Spring Planting Planning Meeting</dc:title>
 
 $ unzip -p agenda.docx docProps/core.xml | grep -o '<dc:creator>[^<]*</dc:creator>'
-<dc:creator>Convention Committee</dc:creator>
+<dc:creator>Rosa Jimenez</dc:creator>
 ```
 
 **The footnote** became a real Word footnote,
@@ -76,8 +76,8 @@ the bottom of the page, but the genuine
 mechanism Word's Insert Footnote makes:
 
 ```
-$ unzip -p agenda.docx word/footnotes.xml | grep -o 'the doorway still won'
-the doorway still won
+$ unzip -p agenda.docx word/footnotes.xml | grep -o 'the gate still won'
+the gate still won
 ```
 
 **The image** is inside the box too, under
@@ -116,4 +116,4 @@ including `word/footnotes.xml` and a
 greps print their lines. If they do, the
 Word file is not merely present — it is
 provably the agenda, in Word's own
-vocabulary, ready for the committee.
+vocabulary, ready for the club.

@@ -49,7 +49,7 @@ Neither syntax is wrong; they are not the
 same file.
 
 **The footnote survived, renumbered.**
-`[^banner]` became `[^1]`, and its text moved
+`[^carry]` became `[^1]`, and its text moved
 to the end, indented as a footnote body.
 Nothing lost; the label you chose is gone.
 
@@ -71,8 +71,8 @@ dimensions as attributes in inches, to
 sixteen digits:
 
 ```
-![Attendance at the last three
-conferences](media/rId24.png){width="2.2222222222222223in"
+![Visitors at the last three open
+days](media/rId24.png){width="2.2222222222222223in"
 height="1.3888888888888888in"}
 ```
 

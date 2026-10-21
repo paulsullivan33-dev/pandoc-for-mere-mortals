@@ -9,7 +9,7 @@ reads:
 ```
 $ pandoc agenda.md -o agenda.epub
 $ ls -l agenda.epub
--rw-rw---- 1 root nogroup 6335 agenda.epub
+-rw-rw---- 1 root nogroup 6299 agenda.epub
 
 $ file agenda.epub
 agenda.epub: EPUB document
@@ -23,15 +23,15 @@ open the box before you believe the book.
 $ unzip -l agenda.epub
        20  mimetype
       252  META-INF/container.xml
-     1589  EPUB/content.opf
+     1581  EPUB/content.opf
      1351  EPUB/toc.ncx
      1069  EPUB/nav.xhtml
-      656  EPUB/text/title_page.xhtml
+      645  EPUB/text/title_page.xhtml
      4102  EPUB/styles/stylesheet1.css
       344  EPUB/media/file0.png
-     2491  EPUB/text/ch001.xhtml
+     2478  EPUB/text/ch001.xhtml
     ...
-    12035      10 files
+    12003      10 files
 ```
 
 Ten parts (one listing line trimmed). The
@@ -49,7 +49,7 @@ entry, in `EPUB/content.opf`:
 
 ```
 $ unzip -p agenda.epub EPUB/content.opf | grep -o '<dc:title[^<]*</dc:title>'
-<dc:title id="epub-title-1">Fall Conference Planning Meeting</dc:title>
+<dc:title id="epub-title-1">Spring Planting Planning Meeting</dc:title>
 ```
 
 The agenda's text is in the chapter file,
@@ -59,8 +59,8 @@ document becomes many chapter files by the
 same rule:
 
 ```
-$ unzip -p agenda.epub EPUB/text/ch001.xhtml | grep -o 'Banquet headcount deadline'
-Banquet headcount deadline
+$ unzip -p agenda.epub EPUB/text/ch001.xhtml | grep -o 'Compost delivery deadline'
+Compost delivery deadline
 ```
 
 And the chart is inside at `EPUB/media/`
@@ -91,6 +91,6 @@ win in the guide.
 Check: `unzip -l agenda.epub` lists 10 files
 with `mimetype` first, the `dc:title` grep
 prints the agenda's title, and the chapter
-grep finds the banquet line. If all three
+grep finds the compost line. If all three
 hold, the book is real — open it in any
 reader and it will simply work.

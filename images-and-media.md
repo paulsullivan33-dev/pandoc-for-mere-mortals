@@ -33,13 +33,13 @@ src="data:image/png;base64
 
 Now the surprise, kept because measurements
 outrank folklore: the embedded page is
-*smaller* than the plain one — 5,412 bytes
-against 5,873:
+*smaller* than the plain one — 5,380 bytes
+against 5,841:
 
 ```
 $ ls -l agenda-bare.html agenda-embedded.html
--rw-rw---- 1 root nogroup 5873 agenda-bare.html
--rw-rw---- 1 root nogroup 5412 agenda-embedded.html
+-rw-rw---- 1 root nogroup 5841 agenda-bare.html
+-rw-rw---- 1 root nogroup 5380 agenda-embedded.html
 ```
 
 Both effects are real. The image added its

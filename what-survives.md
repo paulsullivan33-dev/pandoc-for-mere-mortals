@@ -45,8 +45,8 @@ conversion do with them? The lab answered
 by manufacturing the situation honestly: it
 unzipped chapter 5's DOCX and edited the XML
 the way Word itself writes it — one tracked
-insertion ("Reserve the small hall as a
-backup.", author A. Reviewer) and one
+insertion ("Order more twine for the bean
+poles.", author A. Reviewer) and one
 comment ("Did anyone confirm the projector
 takes HDMI?") anchored to the projector
 line — then rezipped. (The editing script
@@ -57,7 +57,7 @@ Converted with default settings:
 
 ```
 $ pandoc agenda-tracked.docx -t markdown -o tracked-accept.md
-$ grep -c "Reserve the small hall" tracked-accept.md
+$ grep -c "Order more twine" tracked-accept.md
 1
 $ grep -c "HDMI" tracked-accept.md
 0
@@ -81,7 +81,7 @@ not the default:
 
 ```
 $ pandoc --track-changes=reject agenda-tracked.docx -t markdown -o tracked-reject.md
-$ grep -c "Reserve the small hall" tracked-reject.md
+$ grep -c "Order more twine" tracked-reject.md
 0
 ```
 
@@ -101,12 +101,12 @@ In the output, both arrive as marked spans
 that say what they are and who wrote them:
 
 ```
-[Reserve the small hall as a backup.]{.insertion author="A. Reviewer"
+[Order more twine for the bean poles.]{.insertion author="A. Reviewer"
 date="2026-10-20T09:00:00Z"}
 
 [Did anyone confirm the projector takes HDMI?]{.comment-start id="1"
 author="A. Reviewer" date="2026-10-20T09:05:00Z"}Check the projector
-in the main hall.[]{.comment-end id="1"}
+for the seed-starting slideshow.[]{.comment-end id="1"}
 ```
 
 The comment's text sits at the start of the
@@ -119,8 +119,8 @@ only `all` asks the reader to unpack it.
 
 A conversion is a *reading* of a document,
 not a copy of the file. If a DOCX may carry
-an unfinished review — and in committee
-life, it usually may — convert it with
+an unfinished review — and in group
+documents, it usually may — convert it with
 `--track-changes=all` and read the spans
 before you publish anything, or settle the
 review in Word first. The default conversion

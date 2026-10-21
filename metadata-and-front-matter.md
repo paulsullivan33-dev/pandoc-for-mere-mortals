@@ -17,9 +17,9 @@ The lab agenda opens with one:
 
 ```yaml
 ---
-title: Fall Conference Planning Meeting
-author: Convention Committee
-date: October 12, 2026
+title: Spring Planting Planning Meeting
+author: Rosa Jimenez
+date: March 8, 2026
 ---
 ```
 
@@ -33,10 +33,10 @@ the top of the page:
 
 ```
 $ grep -o '<title>[^<]*</title>' agenda.html
-<title>Fall Conference Planning Meeting</title>
+<title>Spring Planting Planning Meeting</title>
 
 $ grep -o '<h1 class="title">[^<]*' agenda.html
-<h1 class="title">Fall Conference Planning Meeting
+<h1 class="title">Spring Planting Planning Meeting
 ```
 
 The author and date sit beside it in the
@@ -51,15 +51,15 @@ document in the document, once.
 ## Overriding from the command line: --metadata
 
 Sometimes the document is right and the
-*occasion* differs: a committee copy that
-must not circulate, a draft that needs
+*occasion* differs: a draft copy that
+must not circulate, a version that needs
 labelling. `--metadata` sets a value for one
 run, and it beats the front matter:
 
 ```
-$ pandoc -s --metadata title="Committee Copy - Do Not Circulate" agenda.md -o agenda-override.html
+$ pandoc -s --metadata title="Draft Copy - Do Not Circulate" agenda.md -o agenda-override.html
 $ grep -o '<title>[^<]*</title>' agenda-override.html
-<title>Committee Copy - Do Not Circulate</title>
+<title>Draft Copy - Do Not Circulate</title>
 ```
 
 The source file is untouched; the override
@@ -81,7 +81,7 @@ variables directly — page geometry for PDF,
 a header include, template switches. And a
 metadata *file* (`--metadata-file`) loads
 the same keys from shared YAML, which suits
-a committee that stamps many documents
+a group that stamps many documents
 alike. Both are everyday tools in real
 pipelines; the lab's captures use front
 matter and `--metadata`, and chapter 13's
@@ -98,7 +98,7 @@ output is a clue to go read the command
 that made it.
 
 Check: `agenda-override.html` greps the
-committee-copy title while `agenda.html`
+draft-copy title while `agenda.html`
 still greps the original — the source's
 front matter, verified unchanged by
 converting it again, wins whenever the
