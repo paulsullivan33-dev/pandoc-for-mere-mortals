@@ -135,3 +135,19 @@ conversion you need. Work from inside
 unzip or extract every output at least once:
 that reflex, more than any single flag, is
 the skill this guide is teaching.
+
+---
+
+## Part of the series
+
+This guide is one of the [For Mere Mortals](https://paulsullivan33-dev.github.io/mere-mortals/) guides: plain-language guides to the tools programmers and makers use.
+
+Related guides:
+
+- [Markdown for Mere Mortals](https://paulsullivan33-dev.github.io/markdown-for-mere-mortals/)
+- [LibreOffice for Mere Mortals](https://paulsullivan33-dev.github.io/libreoffice-for-mere-mortals/)
+- [Calibre for Mere Mortals](https://paulsullivan33-dev.github.io/calibre-for-mere-mortals/)
+
+## License
+
+The writing in this guide is licensed under [CC BY 4.0](https://github.com/paulsullivan33-dev/pandoc-for-mere-mortals/blob/main/LICENSE). Code examples and lab scripts are licensed under the [MIT License](https://github.com/paulsullivan33-dev/pandoc-for-mere-mortals/blob/main/LICENSE-CODE).
